@@ -1,10 +1,8 @@
-import sys, request
-if not 'kir' in request.GET:
-    if sys.argv[1]:
-        user = sys.argv[1]
-    else:
-        user = None
-else:
-    user = request.GET['kir']
+from fastapi import FastAPI
+from fastapi.requests import Request
 
-print(user)
+app = FastAPI()
+
+@app.get('/')
+def main(request:Request,file):
+    print(request)
